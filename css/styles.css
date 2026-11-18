@@ -365,6 +365,19 @@ html{overflow-x:hidden}
 .nav-cta{border-radius:14px;padding:12px 20px}
 .nav-menu .nav-cta-mobile{display:none}
 
+/* Revisión móvil: tarjetas de acceso rápido en una columna */
+@media (max-width:900px){
+  .quick-grid{grid-template-columns:1fr;gap:16px}
+  .quick-card{padding:30px 26px}
+}
+@media (max-width:600px){
+  .hero .eyebrow{font-size:.66rem;letter-spacing:.16em;line-height:1.5;margin-bottom:16px}
+  .hero .eyebrow::before{width:22px}
+  .quick-card h3{font-size:1.5rem}
+  .link-arrow{font-size:.84rem;padding:11px 16px}
+  .btn{padding:15px 22px}
+}
+
 /* Legibilidad del eyebrow del hero sobre la foto */
 .hero .eyebrow{text-shadow:0 2px 14px rgba(0,0,0,.75);color:#ff5a64}
 
@@ -438,8 +451,11 @@ html{overflow-x:hidden}
   .member h3{font-size:1.1rem}
   .member .role{font-size:.6rem}
   .stat{padding:36px 14px}
-  .gallery{grid-template-columns:1fr;grid-auto-rows:240px}
-  .gallery figure:nth-child(1){grid-column:auto}
+  .gallery{grid-template-columns:1fr 1fr;grid-auto-rows:170px;gap:10px}
+  .gallery figure:nth-child(1){grid-column:span 2;grid-row:span 2}
+  .gallery figure:nth-child(4){grid-row:auto}
+  .gallery.gallery-home{grid-template-columns:1fr 1fr;grid-auto-rows:170px}
+  .gallery.gallery-home figure:nth-child(1){grid-column:auto;grid-row:auto}
   .section-head{margin-bottom:44px}
   .map{height:440px}
   .map-card{flex-direction:column;align-items:stretch;gap:12px}
