@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/styles.css?v=16">
+<link rel="stylesheet" href="css/styles.css?v=17">
 </head>
 <body data-page="nosotros" data-header="solid">
 
@@ -84,28 +84,31 @@
         <p class="reveal" style="--d:.1s">Maestros con décadas en el tatami. Cada clase tiene la guía de quien ya pasó por el camino que vas a recorrer.</p>
       </div>
       <!-- Destacado: el Sensei -->
-      <article class="feature reveal">
-        <img src="assets/jk_2.jpeg" alt="Sensei José Soca" loading="lazy">
+      <article class="feature reveal" id="feature">
+        <img id="feat-img" src="assets/jk_2.jpeg" alt="Sensei José Soca" loading="lazy">
         <div class="fbody">
-          <div class="eyebrow">Sensei · 8.º Dan</div>
-          <h3 class="feature-name">José Soca Montero</h3>
-          <p>Conduce la asociación desde su fundación en 1983. Junto a su equipo ha formado a más de 3000 atletas y llevó al club a su primera medalla de oro sudamericana en 1986.</p>
+          <div class="eyebrow" id="feat-role">Sensei · 8.º Dan</div>
+          <h3 class="feature-name" id="feat-name">José Soca Montero</h3>
+          <p id="feat-bio">Conduce la asociación desde su fundación en 1983. Junto a su equipo ha formado a más de 3000 atletas y llevó al club a su primera medalla de oro sudamericana en 1986.</p>
         </div>
       </article>
-      <!-- Resto del equipo: fila compacta -->
-      <div class="roster">
-        <article class="roster-item reveal-s" style="--d:0s">
-          <img src="assets/jk_3.jpeg" alt="Sempai Hiroshi Soca" loading="lazy">
-          <div><div class="role">Sempai</div><h3>Hiroshi Soca</h3></div>
-        </article>
-        <article class="roster-item reveal-s" style="--d:.1s">
-          <img src="assets/jk_4.jpeg" alt="Sempai Pablo López" loading="lazy">
-          <div><div class="role">Sempai</div><h3>Pablo López</h3></div>
-        </article>
-        <article class="roster-item reveal-s" style="--d:.2s">
-          <img src="assets/jk_5.jpeg" alt="Sempai Martín Smaldone" loading="lazy">
-          <div><div class="role">Sempai</div><h3>Martín Smaldone</h3></div>
-        </article>
+      <!-- Resto del equipo: cada tarjeta muestra su perfil arriba -->
+      <div class="roster" role="group" aria-label="Elegí un integrante para verlo en grande">
+        <button class="roster-item reveal-s" type="button" style="--d:0s" aria-pressed="false"
+          data-img="assets/jk_3.jpeg" data-role="Sempai" data-name="Hiroshi Soca" data-alt="Sempai Hiroshi Soca" data-bio="Integrante del equipo de maestros de Judokan.">
+          <img src="assets/jk_3.jpeg" alt="" loading="lazy">
+          <span><span class="role">Sempai</span><span class="rname">Hiroshi Soca</span></span>
+        </button>
+        <button class="roster-item reveal-s" type="button" style="--d:.1s" aria-pressed="false"
+          data-img="assets/jk_4.jpeg" data-role="Sempai" data-name="Pablo López" data-alt="Sempai Pablo López" data-bio="Integrante del equipo de maestros de Judokan.">
+          <img src="assets/jk_4.jpeg" alt="" loading="lazy">
+          <span><span class="role">Sempai</span><span class="rname">Pablo López</span></span>
+        </button>
+        <button class="roster-item reveal-s" type="button" style="--d:.2s" aria-pressed="false"
+          data-img="assets/jk_5.jpeg" data-role="Sempai" data-name="Martín Smaldone" data-alt="Sempai Martín Smaldone" data-bio="Integrante del equipo de maestros de Judokan. También juez y profesor del club.">
+          <img src="assets/jk_5.jpeg" alt="" loading="lazy">
+          <span><span class="role">Sempai</span><span class="rname">Martín Smaldone</span></span>
+        </button>
       </div>
     </div>
   </section>
@@ -148,7 +151,8 @@
 
 <div id="site-footer"></div>
 
-<script src="js/layout.js?v=16"></script>
-<script src="js/main.js?v=16"></script>
+<script src="js/layout.js?v=17"></script>
+<script src="js/main.js?v=17"></script>
+<script src="js/team.js?v=17"></script>
 </body>
 </html>

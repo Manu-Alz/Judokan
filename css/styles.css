@@ -374,9 +374,16 @@ html{overflow-x:hidden}
 .feature-name{font-size:2.4rem;color:#fff;margin:6px 0 16px}
 .feature p{font-size:1.04rem;max-width:520px}
 .roster{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.roster-item{display:flex;align-items:center;gap:18px;padding:18px 22px;border:1px solid var(--line);border-radius:var(--radius);background:var(--bg-2);transition:transform .4s var(--ease),border-color .4s}
+.roster-item{display:flex;align-items:center;gap:18px;padding:18px 22px;border:1px solid var(--line);border-radius:var(--radius);background:var(--bg-2);color:inherit;font:inherit;text-align:left;cursor:pointer;transition:transform .4s var(--ease),border-color .4s,background .4s,box-shadow .4s}
 .roster-item:hover{transform:translateY(-4px);border-color:rgba(224,33,47,.45)}
+.roster-item:focus-visible{outline:2px solid var(--red);outline-offset:3px}
+.roster-item[aria-pressed="true"]{border-color:var(--red);background:var(--bg-3);box-shadow:0 18px 36px -18px var(--red-glow)}
 .roster-item img{width:76px;height:76px;flex:0 0 76px;border-radius:50%;object-fit:cover;object-position:center 15%;box-shadow:0 0 0 3px var(--bg-3)}
+.roster-item .rname{display:block;font-family:Oswald,sans-serif;font-size:1.25rem;font-weight:600;text-transform:uppercase;color:#fff;line-height:1.15}
+.roster-item .role{display:block}
+/* Cambio del destacado: fade suave entre perfiles */
+.feature .fbody,.feature img{transition:opacity .26s var(--ease)}
+.feature.switching .fbody,.feature.switching img{opacity:0}
 .roster-item .role{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:#ff5a64;font-weight:600;margin-bottom:4px}
 .roster-item h3{font-size:1.25rem;color:#fff}
 @media (max-width:900px){
