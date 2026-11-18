@@ -22,7 +22,8 @@
     { id: 'contacto', label: 'Contacto', href: 'contacto.html' }
   ];
 
-  var SEAL_SVG = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm0 3a7 7 0 110 14 7 7 0 010-14zm-1 3.5v3H8v2h3v3h2v-3h3v-2h-3v-3h-2z"/></svg>';
+  // Logo oficial del club (assets/logo.png), usado en el encabezado y el pie.
+  var SEAL_SVG = '<img src="assets/logo.png" alt="" width="150" height="150">';
   var PHONE_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2"/></svg>';
 
   function el(html) {

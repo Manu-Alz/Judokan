@@ -65,9 +65,10 @@ section{padding:120px 0;position:relative}
 
 .nav{height:100%;display:flex;align-items:center;justify-content:space-between;gap:24px}
 .brand{display:flex;align-items:center;gap:12px;text-decoration:none;flex:0 0 auto}
-.seal{width:44px;height:44px;border-radius:50%;background:var(--red);display:grid;place-items:center;box-shadow:0 0 0 2px rgba(255,255,255,.14),0 8px 20px -6px var(--red-glow);transition:transform .6s var(--ease)}
-.brand:hover .seal{transform:rotate(90deg)}
-.seal svg{width:26px;height:26px;fill:#fff}
+.seal{width:52px;height:52px;flex:0 0 52px;border-radius:50%;display:block;overflow:hidden;transition:transform .6s var(--ease),filter .4s}
+.seal img{width:100%;height:100%;object-fit:contain;display:block}
+.brand:hover .seal{transform:scale(1.06)}
+.foot-brand .seal{width:60px;height:60px;flex-basis:60px}
 .brand-text{font-family:Oswald,sans-serif;font-weight:700;font-size:1.3rem;letter-spacing:.12em;line-height:1;text-shadow:0 2px 12px rgba(0,0,0,.35)}
 .brand-text small{display:block;font-family:Inter,sans-serif;font-size:.58rem;letter-spacing:.42em;color:rgba(255,255,255,.7);font-weight:500;margin-top:5px}
 
