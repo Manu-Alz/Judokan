@@ -18,6 +18,12 @@
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
+  /* 0. Volver atrás/adelante: si el navegador restauró una página vieja desde
+        su caché (bfcache), se recarga para mostrar siempre la versión actual. */
+  window.addEventListener('pageshow', function (e) {
+    if (e.persisted) window.location.reload();
+  });
+
   /* 1b. Píldora deslizante de la navbar ---------------------------------- */
   // La píldora roja se desliza hasta el enlace activo y, al pasar o hacer
   // clic en otra opción, se desliza hasta esa. Vuelve a la activa al salir.
