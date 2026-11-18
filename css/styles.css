@@ -57,7 +57,7 @@ section{padding:96px 0;position:relative}
 .btn-line:hover{color:#000;border-color:#fff}
 
 /* 4. Encabezado y navegación --------------------------------------------- */
-.site-header{position:fixed;inset:0 0 auto 0;z-index:100;height:var(--header-h);transition:background .45s var(--ease),backdrop-filter .45s,box-shadow .45s,height .45s var(--ease),border-color .45s;border-bottom:1px solid transparent}
+.site-header{position:fixed;inset:0 0 auto 0;z-index:100;height:var(--header-h);transition:background-color .45s var(--ease),box-shadow .45s var(--ease),height .45s var(--ease),border-color .45s;border-bottom:1px solid transparent;transform:translateZ(0)}
 /* Estado 1: sobre el hero, transparente */
 .site-header::before{content:"";position:absolute;inset:0 0 -40px 0;background:linear-gradient(180deg,rgba(0,0,0,.55),rgba(0,0,0,0));pointer-events:none;transition:opacity .45s;z-index:-1}
 /* Estado 2: al hacer scroll o en páginas internas, vidrio oscuro */
@@ -430,9 +430,19 @@ html{overflow-x:hidden}
 @media (max-width:1040px){.values-grid{grid-template-columns:1fr 1fr}}
 @media (max-width:600px){.values-grid{grid-template-columns:1fr}}
 
+/* Menú móvil, versión final: sin blur en la cabecera (el blur animado trababa el menú),
+   overlay con opacidad + transform, enlaces escalonados. */
+@media (max-width:900px){
+  .site-header,.site-header.scrolled,.site-header.solid{-webkit-backdrop-filter:none;backdrop-filter:none;background:rgba(11,11,13,.97);transition:background-color .3s,box-shadow .3s,height .3s}
+  .site-header::before{display:none}
+  .site-header.menu-open{background:transparent;box-shadow:none;border-bottom-color:transparent}
+  .nav-menu{transform:translate3d(0,-14px,0);transition:opacity .3s ease,transform .4s var(--ease),visibility .3s;will-change:opacity,transform}
+  .nav-menu.open{transform:translate3d(0,0,0)}
+}
+
 /* Menú móvil: fondo sólido, sin óvalo, entrada escalonada (solo transform y opacity) */
 @media (max-width:900px){
-  .nav-menu{background:#0b0b0d;opacity:0;visibility:hidden;transition:opacity .35s var(--ease),visibility .35s}
+  .nav-menu{background:#0b0b0d;opacity:0;visibility:hidden;transform:translate3d(0,-14px,0);transition:opacity .3s ease,transform .4s var(--ease),visibility .3s;will-change:opacity,transform}
   .nav-menu.open{opacity:1;visibility:visible}
   .site-header .nav-menu ul,.site-header.solid .nav-menu ul,.site-header.scrolled .nav-menu ul{background:none;border:0;box-shadow:none;padding:0}
   .nav-menu a.link{opacity:0;transform:translateY(16px);transition:opacity .45s var(--ease),transform .45s var(--ease),color .3s}
@@ -516,7 +526,7 @@ html{overflow-x:hidden}
 @media (max-width:900px){
   section{padding:76px 0}
   .burger{display:flex}
-  .nav-menu{position:fixed;inset:0;background:rgba(11,11,13,.98);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:34px;padding:90px 24px 40px;opacity:0;pointer-events:none;transition:opacity .4s var(--ease)}
+  .nav-menu{position:fixed;inset:0;background:#0b0b0d;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:34px;padding:90px 24px 40px;opacity:0;pointer-events:none;transform:translate3d(0,-14px,0);transition:opacity .3s ease,transform .4s var(--ease),visibility .3s;will-change:opacity,transform}
   .nav-menu.open{opacity:1;pointer-events:auto}
   .site-header.menu-open{background:none;backdrop-filter:none;-webkit-backdrop-filter:none;box-shadow:none;border-bottom-color:transparent}
   .site-header.menu-open::before{opacity:0}
