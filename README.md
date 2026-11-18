@@ -6,16 +6,63 @@ Es un archivo HTML estático: no tiene build, ni dependencias, ni backend. Se ab
 ## Estructura del repo
 
 ```
-index.html          Estructura y contenido (HTML). Enlaza al CSS y al JS.
+index.html          Inicio: hero, horarios, noticias recientes, galería y contacto
+nosotros.html       Sobre nosotros: historia, hitos, equipo y disciplinas
+noticias.html       Listado de noticias con filtros por categoría
+noticia.html        Plantilla de cada noticia (se abre con ?s=identificador)
 css/
   styles.css        Todos los estilos, ordenados por secciones numeradas
 js/
-  main.js           Comportamiento: menú móvil, revelado al scroll, contadores, visor de galería
+  main.js           Comportamiento común: navbar, menú móvil, revelado al scroll, contadores, visor
+  noticias.js       Lee data/noticias.json y arma tarjetas, listado y páginas de noticia
+data/
+  noticias.json     Las noticias. Acá se publica todo lo nuevo (ver "Noticias")
 assets/             Fotos del club
-  jk_*.jpeg         Fotos del sitio original de judokan.uy (hero, nosotros, equipo)
+  jk_*.jpeg|png     Fotos del sitio original de judokan.uy (hero, nosotros, equipo, podio)
   galeria/ig_*.webp Fotos de Instagram para la galería
 README.md           Este archivo
 ```
+
+## Páginas
+
+Cada página es un archivo HTML independiente con su propia dirección (`nosotros.html`, `noticias.html`, `noticia.html?s=...`).
+El encabezado y el pie se repiten en cada archivo: si cambia el menú, hay que actualizarlo en todas las páginas.
+Para el enlace activo de la navbar, cada página tiene `data-page="..."` en `<body>` y cada enlace tiene `data-nav="..."`.
+
+## Noticias: cómo publicar
+
+Todo se carga desde `data/noticias.json`. No hace falta tocar HTML para publicar algo nuevo.
+
+1. Subí la foto a `assets/` (por ejemplo `assets/noticias/curso-verano.jpg`, de 1200 px de ancho o más).
+2. Agregá un objeto al **principio** de la lista en `data/noticias.json` (la primera es la más reciente):
+
+```json
+{
+  "slug": "curso-verano-2027",
+  "titulo": "Curso de verano 2027",
+  "fecha": "2027-01-15",
+  "categoria": "Eventos",
+  "resumen": "Una línea que aparece en la tarjeta.",
+  "imagen": "assets/noticias/curso-verano.jpg",
+  "imagenAlt": "Descripción de la foto",
+  "cuerpo": [
+    "Primer párrafo de la noticia.",
+    "Segundo párrafo."
+  ]
+}
+```
+
+- `slug`: identificador sin espacios ni tildes, único. Es la dirección de la página (`noticia.html?s=curso-verano-2027`).
+- `fecha`: formato `AAAA-MM-DD`. Si la dejás vacía `""`, no se muestra.
+- `categoria`: los filtros de `noticias.html` se generan solos a partir de estas categorías. Ejemplos: Eventos, Clases, Competencia, Novedades.
+- `cuerpo`: cada elemento de la lista es un párrafo. Va solo texto (no HTML).
+- Para borrar una noticia, quitá su objeto del archivo.
+
+**Importante:** el archivo es JSON estricto. Las comillas van dobles, no hay comas después del último elemento, y no se pueden usar comillas dentro de un texto sin escaparlas (`\"`).
+
+El sitio tiene que abrirse desde un servidor (GitHub Pages o un servidor local) para que cargue `noticias.json`. Abriendo `index.html` con doble clic en el explorador, las noticias no aparecen.
+
+## Responsive
 
 Regla general: el HTML solo tiene contenido, el CSS solo tiene estilos y el JS solo tiene comportamiento.
 No hay estilos ni scripts dentro de `index.html`, salvo el enlace a las fuentes de Google.

@@ -1,0 +1,29 @@
+[
+  {
+    "slug": "tour-sudamericano-podio",
+    "titulo": "Nuestros alumnos en el Tour Sudamericano",
+    "fecha": "",
+    "categoria": "Competencia",
+    "resumen": "Medallas y podios de nuestros judokas en el circuito internacional.",
+    "imagen": "assets/jk_7.png",
+    "imagenAlt": "Podio del Tour Sudamericano Internacional",
+    "cuerpo": [
+      "Nuestros alumnos volvieron a subir al podio en el Tour Sudamericano Internacional, una de las competencias más exigentes de la región.",
+      "Cada medalla es el resultado de meses de entrenamiento, disciplina y trabajo en equipo con nuestros maestros.",
+      "¡Felicitaciones a todos los que representaron al club!"
+    ]
+  },
+  {
+    "slug": "nuevo-sitio-web",
+    "titulo": "Estrenamos nuestro sitio web",
+    "fecha": "",
+    "categoria": "Novedades",
+    "resumen": "Horarios, equipo, galería y contacto en un solo lugar.",
+    "imagen": "assets/jk_1.jpeg",
+    "imagenAlt": "Maestros y alumnos de Judokan",
+    "cuerpo": [
+      "Ya podés encontrar en nuestra página los horarios de clases, el equipo de maestros, la galería de fotos y cómo llegar al club.",
+      "Desde aquí también vamos a publicar noticias sobre eventos, competencias y novedades de las clases."
+    ]
+  }
+]
