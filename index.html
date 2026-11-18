@@ -5,267 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Judokan Uruguay | Judo, Jiu-jitsu, Sumo y Kurash en Montevideo</title>
 <meta name="description" content="Asociación de Artes Marciales Judokan, Montevideo. Judo, Jiu-jitsu, Sumo y Kurash desde 1983. Horarios, equipo y contacto.">
+<link rel="icon" href="assets/jk_1.jpeg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --bg:#0b0b0d;
-    --bg-2:#131317;
-    --bg-3:#1b1b21;
-    --line:rgba(255,255,255,.09);
-    --text:#f4f4f2;
-    --muted:#9a9ca6;
-    --red:#e0212f;
-    --red-glow:rgba(224,33,47,.35);
-    --radius:18px;
-    --max:1200px;
-    --ease:cubic-bezier(.2,.7,.2,1);
-  }
-  *{box-sizing:border-box}
-  html{scroll-behavior:smooth;scroll-padding-top:90px}
-  body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-  img{display:block;max-width:100%}
-  a{color:inherit}
-  .wrap{max-width:var(--max);margin:0 auto;padding:0 22px}
-  h1,h2,h3,.display{font-family:Oswald,Impact,"Arial Narrow",sans-serif;text-transform:uppercase;letter-spacing:.01em;line-height:.95;margin:0;font-weight:700}
-  h2{font-size:clamp(2.4rem,6vw,4.6rem)}
-  h3{font-size:1.4rem}
-  p{margin:0;color:var(--muted)}
-  section{padding:120px 0;position:relative}
-  .eyebrow{display:inline-flex;align-items:center;gap:12px;font-size:.78rem;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--red);margin-bottom:22px}
-  .eyebrow::before{content:"";width:34px;height:2px;background:var(--red)}
-  .section-head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap;margin-bottom:64px}
-  .section-head p{max-width:440px}
-
-  /* botones */
-  .btn{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:17px 30px;border-radius:999px;font-weight:600;font-size:.95rem;text-decoration:none;overflow:hidden;isolation:isolate;transition:transform .35s var(--ease),box-shadow .35s var(--ease),color .35s;cursor:pointer;border:0}
-  .btn::after{content:"";position:absolute;inset:0;background:#fff;transform:translateY(101%);transition:transform .45s var(--ease);z-index:-1;border-radius:inherit}
-  .btn:hover::after{transform:translateY(0)}
-  .btn-red{background:var(--red);color:#fff;box-shadow:0 14px 34px -12px var(--red-glow)}
-  .btn-red:hover{color:#000}
-  .btn-line{border:1.5px solid rgba(255,255,255,.35);color:#fff}
-  .btn-line:hover{color:#000;border-color:#fff}
-  .btn:hover{transform:translateY(-2px)}
-  .btn svg{width:18px;height:18px}
-
-  /* header */
-  header{position:fixed;inset:0 0 auto 0;z-index:100;transition:background .4s,backdrop-filter .4s,padding .4s;padding:22px 0}
-  header.scrolled{background:rgba(11,11,13,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding:14px 0;border-bottom:1px solid var(--line)}
-  .nav{display:flex;align-items:center;justify-content:space-between}
-  .brand{display:flex;align-items:center;gap:12px;text-decoration:none}
-  .seal{width:46px;height:46px;border-radius:50%;background:var(--red);display:grid;place-items:center;box-shadow:0 0 0 3px rgba(255,255,255,.12)}
-  .seal svg{width:28px;height:28px;fill:#fff}
-  .brand-text{font-family:Oswald,sans-serif;font-weight:700;font-size:1.35rem;letter-spacing:.12em;line-height:1}
-  .brand-text small{display:block;font-family:Inter,sans-serif;font-size:.6rem;letter-spacing:.42em;color:var(--muted);font-weight:500;margin-top:5px}
-  nav ul{display:flex;gap:34px;list-style:none;margin:0;padding:0}
-  nav a.link{text-decoration:none;font-size:.88rem;font-weight:500;color:rgba(255,255,255,.8);position:relative;padding:6px 0;transition:color .3s}
-  nav a.link::after{content:"";position:absolute;left:0;bottom:0;width:0;height:2px;background:var(--red);transition:width .4s var(--ease)}
-  nav a.link:hover{color:#fff}
-  nav a.link:hover::after{width:100%}
-  .nav-cta{padding:12px 22px;font-size:.85rem}
-  .burger{display:none;width:46px;height:46px;border-radius:12px;border:1px solid var(--line);background:rgba(255,255,255,.04);cursor:pointer;align-items:center;justify-content:center}
-  .burger span{display:block;width:20px;height:2px;background:#fff;position:relative;transition:background .3s}
-  .burger span::before,.burger span::after{content:"";position:absolute;left:0;width:20px;height:2px;background:#fff;transition:transform .4s var(--ease)}
-  .burger span::before{top:-6px}
-  .burger span::after{top:6px}
-  .burger[aria-expanded="true"] span{background:transparent}
-  .burger[aria-expanded="true"] span::before{transform:translateY(6px) rotate(45deg)}
-  .burger[aria-expanded="true"] span::after{transform:translateY(-6px) rotate(-45deg)}
-
-  /* hero */
-  .hero{position:relative;min-height:100vh;min-height:100svh;display:flex;align-items:flex-end;overflow:hidden;background:#000}
-  .hero-bg{position:absolute;inset:-6%;background:url("assets/jk_1.jpeg") center 25%/cover no-repeat;animation:kenburns 22s ease-in-out infinite alternate;will-change:transform}
-  @keyframes kenburns{from{transform:scale(1) translate3d(0,0,0)}to{transform:scale(1.12) translate3d(-1.5%,-1%,0)}}
-  .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(11,11,13,.92) 0%,rgba(11,11,13,.55) 50%,rgba(11,11,13,.2) 100%),linear-gradient(0deg,var(--bg) 0%,rgba(11,11,13,0) 45%)}
-  .hero-content{position:relative;z-index:2;padding:160px 0 150px;max-width:920px}
-  .hero h1{font-size:clamp(3.6rem,11vw,9.4rem);line-height:.86;font-weight:700}
-  .hero h1 .line{display:block;overflow:hidden;padding-bottom:.06em}
-  .hero h1 .line span{display:inline-block;transform:translateY(110%);animation:rise 1.1s var(--ease) forwards}
-  .hero h1 .line:nth-child(2) span{animation-delay:.15s}
-  .hero h1 .line:nth-child(3) span{animation-delay:.3s;color:var(--red)}
-  @keyframes rise{to{transform:translateY(0)}}
-  .hero-lead{margin-top:28px;max-width:520px;font-size:clamp(1rem,1.5vw,1.14rem);color:rgba(255,255,255,.78);opacity:0;animation:fade .9s .6s var(--ease) forwards}
-  .hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:38px;opacity:0;animation:fade .9s .8s var(--ease) forwards}
-  @keyframes fade{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
-  .scroll-cue{position:absolute;right:40px;bottom:150px;z-index:2;writing-mode:vertical-rl;font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:14px}
-  .scroll-cue::after{content:"";width:1px;height:70px;background:linear-gradient(var(--red),transparent);animation:cue 2s infinite}
-  @keyframes cue{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
-
-  /* marquee */
-  .marquee{background:var(--red);color:#fff;overflow:hidden;white-space:nowrap;padding:18px 0;transform:rotate(-1.4deg);margin:-30px -4% 0;position:relative;z-index:3;box-shadow:0 20px 40px -20px rgba(0,0,0,.6)}
-  .marquee-track{display:inline-flex;animation:marquee 26s linear infinite}
-  .marquee span{font-family:Oswald,sans-serif;font-size:1.6rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;padding:0 26px;display:inline-flex;align-items:center;gap:26px}
-  .marquee span::after{content:"";width:10px;height:10px;background:#fff;transform:rotate(45deg)}
-  @keyframes marquee{to{transform:translateX(-50%)}}
-
-  /* stats */
-  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-  .stat{padding:56px 24px;text-align:center;border-right:1px solid var(--line)}
-  .stat:last-child{border-right:0}
-  .stat b{display:block;font-family:Oswald,sans-serif;font-size:clamp(3rem,6vw,5rem);font-weight:700;line-height:1;color:#fff}
-  .stat b em{font-style:normal;color:var(--red)}
-  .stat span{display:block;margin-top:12px;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
-
-  /* nosotros */
-  .about{display:grid;grid-template-columns:1.05fr 1fr;gap:80px;align-items:center}
-  .about-media{position:relative}
-  .about-media .frame{position:absolute;inset:26px -26px -26px 26px;border:2px solid var(--red);border-radius:var(--radius);z-index:0}
-  .about-media img{position:relative;z-index:1;width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:var(--radius);filter:saturate(.9) contrast(1.05)}
-  .badge{position:absolute;z-index:2;right:-18px;bottom:40px;background:var(--red);color:#fff;padding:22px 26px;border-radius:14px;box-shadow:0 24px 40px -16px var(--red-glow)}
-  .badge b{display:block;font-family:Oswald,sans-serif;font-size:2.6rem;line-height:1}
-  .badge span{font-size:.8rem;letter-spacing:.1em;text-transform:uppercase}
-  .about h2{margin-bottom:28px}
-  .about p+p{margin-top:18px}
-  .about p{font-size:1.05rem}
-  .disciplines{display:flex;flex-wrap:wrap;gap:10px;margin-top:34px}
-  .disciplines span{padding:10px 18px;border-radius:999px;border:1px solid var(--line);background:var(--bg-2);font-size:.88rem;font-weight:500;color:#fff;transition:all .35s var(--ease)}
-  .disciplines span:hover{border-color:var(--red);background:rgba(224,33,47,.1);transform:translateY(-2px)}
-
-  /* equipo */
-  .team-sec{background:var(--bg-2)}
-  .team{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
-  .member{position:relative;border-radius:var(--radius);overflow:hidden;aspect-ratio:3/4;background:var(--bg-3);cursor:default;isolation:isolate}
-  .member img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 15%;filter:grayscale(1) contrast(1.05);transition:transform 1s var(--ease),filter .6s}
-  .member:hover img{transform:scale(1.07);filter:grayscale(0) contrast(1.02)}
-  .member::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.92) 0%,rgba(0,0,0,.1) 55%,transparent 70%);z-index:1}
-  .member .info{position:absolute;left:0;right:0;bottom:0;padding:24px;z-index:2;transition:transform .5s var(--ease)}
-  .member:hover .info{transform:translateY(-6px)}
-  .member .role{font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:#ff5a64;font-weight:600;margin-bottom:6px}
-  .member h3{font-size:1.5rem;color:#fff}
-  .member .bar{position:absolute;top:0;left:0;height:4px;width:0;background:var(--red);z-index:3;transition:width .6s var(--ease)}
-  .member:hover .bar{width:100%}
-
-  /* horarios */
-  .sched-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-  .sched{position:relative;background:var(--bg-2);border:1px solid var(--line);border-radius:var(--radius);padding:40px 34px;overflow:hidden;transition:transform .5s var(--ease),border-color .4s,background .4s}
-  .sched::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--red);transform:scaleY(0);transform-origin:top;transition:transform .6s var(--ease)}
-  .sched:hover{transform:translateY(-6px);border-color:rgba(224,33,47,.4)}
-  .sched:hover::before{transform:scaleY(1)}
-  .sched .day{font-family:Oswald,sans-serif;font-size:1.9rem;line-height:1.05;text-transform:uppercase;margin-bottom:24px}
-  .sched .slot{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:14px 0;border-top:1px solid var(--line)}
-  .sched .slot:first-of-type{border-top:0}
-  .sched .slot span{font-size:.95rem;color:var(--muted)}
-  .sched .slot b{font-family:Oswald,sans-serif;font-size:1.7rem;font-weight:600;color:#fff;white-space:nowrap}
-  .sched .slot b small{font-size:.9rem;color:var(--red);margin-left:4px}
-  .sched-note{margin-top:28px;color:var(--muted);font-size:.95rem}
-
-  /* galería */
-  .gallery{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:260px;gap:14px}
-  .gallery figure{margin:0;position:relative;border-radius:14px;overflow:hidden;cursor:zoom-in;background:var(--bg-3)}
-  .gallery figure:nth-child(1){grid-column:span 2;grid-row:span 2}
-  .gallery figure:nth-child(4){grid-row:span 2}
-  .gallery img{width:100%;height:100%;object-fit:cover;transition:transform 1s var(--ease),filter .6s;filter:saturate(.85)}
-  .gallery figure:hover img{transform:scale(1.08);filter:saturate(1.1)}
-  .gallery figure::after{content:"+";position:absolute;right:16px;bottom:12px;width:44px;height:44px;border-radius:50%;background:var(--red);color:#fff;display:grid;place-items:center;font-size:1.6rem;opacity:0;transform:scale(.5);transition:all .45s var(--ease)}
-  .gallery figure:hover::after{opacity:1;transform:scale(1)}
-  .lightbox{position:fixed;inset:0;background:rgba(0,0,0,.94);display:none;align-items:center;justify-content:center;z-index:200;padding:24px;cursor:zoom-out}
-  .lightbox.open{display:flex;animation:fade .4s var(--ease)}
-  .lightbox img{max-width:min(1100px,96vw);max-height:88vh;border-radius:12px;box-shadow:0 30px 80px rgba(0,0,0,.6)}
-
-  /* contacto */
-  .contact{background:var(--red);color:#fff;overflow:hidden}
-  .contact::before{content:"JUDOKAN";position:absolute;left:-2%;bottom:-70px;font-family:Oswald,sans-serif;font-weight:700;font-size:clamp(7rem,22vw,20rem);line-height:1;color:rgba(0,0,0,.12);pointer-events:none;white-space:nowrap}
-  .contact-grid{position:relative;display:grid;grid-template-columns:1.2fr 1fr;gap:70px;align-items:center}
-  .contact h2{color:#fff;font-size:clamp(3rem,8vw,6.6rem)}
-  .contact p{color:rgba(255,255,255,.9);font-size:1.1rem;margin-top:22px;max-width:520px}
-  .phone{display:inline-flex;align-items:center;gap:14px;margin-top:34px;font-family:Oswald,sans-serif;font-size:clamp(2rem,4.5vw,3.2rem);font-weight:600;text-decoration:none;color:#fff;border-bottom:3px solid rgba(255,255,255,.5);padding-bottom:4px;transition:border-color .3s,gap .4s var(--ease)}
-  .phone:hover{border-color:#fff;gap:22px}
-  .contact-card{background:rgba(0,0,0,.18);border:1px solid rgba(255,255,255,.22);border-radius:var(--radius);padding:34px;backdrop-filter:blur(6px)}
-  .contact-card .item{padding:18px 0;border-top:1px solid rgba(255,255,255,.2)}
-  .contact-card .item:first-child{border-top:0;padding-top:0}
-  .contact-card small{display:block;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;opacity:.75;margin-bottom:6px;font-weight:600}
-  .contact-card strong{font-size:1.1rem;font-weight:600}
-  .contact-card ul{list-style:none;margin:0;padding:0}
-  .contact-card li{padding:4px 0;font-size:1rem}
-  .socials{display:flex;gap:12px;margin-top:40px;flex-wrap:wrap}
-  .socials a{display:inline-flex;align-items:center;gap:8px;padding:12px 18px;border-radius:999px;border:1.5px solid rgba(255,255,255,.5);text-decoration:none;font-size:.9rem;font-weight:600;transition:all .35s var(--ease)}
-  .socials a:hover{background:#fff;color:var(--red);transform:translateY(-2px)}
-
-  footer{padding:34px 0;border-top:1px solid var(--line);color:var(--muted);font-size:.88rem;background:var(--bg)}
-  footer .row{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
-  footer a{color:#fff;text-decoration:none}
-
-  /* reveal */
-  .reveal{opacity:0;transform:translateY(40px);transition:opacity .9s var(--ease),transform .9s var(--ease);transition-delay:var(--d,0s)}
-  .reveal.in{opacity:1;transform:none}
-  .reveal-l{opacity:0;transform:translateX(-50px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
-  .reveal-l.in{opacity:1;transform:none}
-  .reveal-s{opacity:0;transform:scale(.94);transition:opacity 1s var(--ease),transform 1s var(--ease);transition-delay:var(--d,0s)}
-  .reveal-s.in{opacity:1;transform:none}
-
-  /* responsive */
-  @media (max-width:1040px){
-    nav ul{gap:20px}
-    .team{grid-template-columns:repeat(2,1fr)}
-    .gallery{grid-template-columns:repeat(2,1fr);grid-auto-rows:240px}
-    .gallery figure:nth-child(1){grid-column:span 2;grid-row:span 1}
-    .gallery figure:nth-child(4){grid-row:span 1}
-  }
-  @media (max-width:900px){
-    section{padding:90px 0}
-    nav{position:fixed;inset:0;background:rgba(11,11,13,.97);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .4s}
-    nav.open{opacity:1;pointer-events:auto}
-    nav ul{flex-direction:column;align-items:center;gap:28px}
-    nav a.link{font-family:Oswald,sans-serif;font-size:1.8rem;text-transform:uppercase}
-    .nav-cta{display:none}
-    .burger{display:flex;position:relative;z-index:201}
-    .about,.contact-grid{grid-template-columns:1fr;gap:60px}
-    .about-media .frame{inset:18px -12px -18px 18px}
-    .badge{right:12px;bottom:-22px}
-    .stats{grid-template-columns:1fr 1fr}
-    .stat:nth-child(2){border-right:0}
-    .stat:nth-child(-n+2){border-bottom:1px solid var(--line)}
-    .sched-grid{grid-template-columns:1fr}
-    .scroll-cue{display:none}
-  }
-  @media (max-width:600px){
-    .wrap{padding:0 18px}
-    section{padding:72px 0}
-    .hero-content{padding:130px 0 120px}
-    .hero h1{font-size:clamp(3rem,15vw,4.4rem)}
-    .hero-actions .btn{flex:1 1 100%}
-    .marquee span{font-size:1.2rem}
-    .team{grid-template-columns:1fr 1fr;gap:12px}
-    .member{aspect-ratio:3/4}
-    .member .info{padding:16px}
-    .member h3{font-size:1.1rem}
-    .member .role{font-size:.6rem}
-    .stats{grid-template-columns:1fr 1fr}
-    .stat{padding:36px 14px}
-    .gallery{grid-template-columns:1fr;grid-auto-rows:240px}
-    .gallery figure:nth-child(1){grid-column:auto}
-    .section-head{margin-bottom:44px}
-    .contact-card{padding:26px}
-    .socials a{flex:1 1 auto;justify-content:center}
-  }
-  @media (prefers-reduced-motion:reduce){
-    *,*::before,*::after{animation:none!important;transition:none!important}
-    .reveal,.reveal-l,.reveal-s{opacity:1;transform:none}
-    .hero h1 .line span,.hero-lead,.hero-actions{opacity:1;transform:none}
-  }
-</style>
+<link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
-<header id="top">
+<header>
   <div class="wrap nav">
     <a class="brand" href="#inicio" aria-label="Judokan Uruguay, inicio">
       <span class="seal" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm0 3a7 7 0 110 14 7 7 0 010-14zm-1 3.5v3H8v2h3v3h2v-3h3v-2h-3v-3h-2z"/></svg></span>
       <span class="brand-text">JUDOKAN<small>URUGUAY</small></span>
     </a>
-    <nav id="nav">
-      <ul>
-        <li><a class="link" href="#nosotros">Nosotros</a></li>
-        <li><a class="link" href="#equipo">Equipo</a></li>
-        <li><a class="link" href="#horarios">Horarios</a></li>
-        <li><a class="link" href="#galeria">Galería</a></li>
-        <li><a class="link" href="#contacto">Contacto</a></li>
-      </ul>
-    </nav>
-    <div style="display:flex;gap:12px;align-items:center">
+    <div class="nav-right">
+      <nav id="nav" class="nav-menu" aria-label="Principal">
+        <ul>
+          <li><a class="link" href="#nosotros">Nosotros</a></li>
+          <li><a class="link" href="#equipo">Equipo</a></li>
+          <li><a class="link" href="#horarios">Horarios</a></li>
+          <li><a class="link" href="#galeria">Galería</a></li>
+          <li><a class="link" href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
       <a class="btn btn-red nav-cta" href="#contacto">Probá una clase</a>
-      <button class="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav" onclick="toggleMenu(this)"><span></span></button>
+      <button class="burger" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav"><span></span></button>
     </div>
   </div>
 </header>
@@ -275,7 +40,7 @@
   <div class="hero" id="inicio">
     <div class="hero-bg" aria-hidden="true"></div>
     <div class="wrap hero-content">
-      <div class="eyebrow" style="opacity:0;animation:fade .8s .2s var(--ease) forwards">Asociación de Artes Marciales · Montevideo</div>
+      <div class="eyebrow">Asociación de Artes Marciales · Montevideo</div>
       <h1>
         <span class="line"><span>Judo</span></span>
         <span class="line"><span>Desde 1983</span></span>
@@ -284,7 +49,7 @@
       <p class="hero-lead">Judo, Jiu-jitsu, Sumo y Kurash. Cuatro décadas formando atletas, campeones y personas que representaron a Uruguay en el mundo.</p>
       <div class="hero-actions">
         <a class="btn btn-red" href="#contacto">Quiero sumarme
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         <a class="btn btn-line" href="#horarios">Ver horarios</a>
       </div>
     </div>
@@ -298,13 +63,13 @@
     </div>
   </div>
 
-  <!-- STATS -->
+  <!-- ESTADÍSTICAS -->
   <div class="wrap">
-    <div class="stats" style="margin-top:90px">
-      <div class="stat reveal" style="--d:0s"><b data-count="1983">1983</b><span>Fundación</span></div>
-      <div class="stat reveal" style="--d:.1s"><b><span data-count="3000">0</span><em>+</em></b><span>Atletas formados</span></div>
-      <div class="stat reveal" style="--d:.2s"><b><span data-count="200">0</span><em>+</em></b><span>Campeonatos internacionales</span></div>
-      <div class="stat reveal" style="--d:.3s"><b data-count="1992">1992</b><span>Primera participación olímpica</span></div>
+    <div class="stats">
+      <div class="stat reveal" style="--d:0s"><b>1983</b><span>Fundación</span></div>
+      <div class="stat reveal" style="--d:.1s"><b><span data-count="3000">3000</span><em>+</em></b><span>Atletas formados</span></div>
+      <div class="stat reveal" style="--d:.2s"><b><span data-count="200">200</span><em>+</em></b><span>Campeonatos internacionales</span></div>
+      <div class="stat reveal" style="--d:.3s"><b>1992</b><span>Primera participación olímpica</span></div>
     </div>
   </div>
 
@@ -318,7 +83,7 @@
       </div>
       <div>
         <div class="eyebrow reveal">Sobre nosotros</div>
-        <h2 class="reveal">Una institución con <span style="color:var(--red)">historia</span></h2>
+        <h2 class="reveal">Una institución con <span class="accent">historia</span></h2>
         <p class="reveal" style="--d:.1s">Asociación de Artes Marciales Judokan promueve el desarrollo y la enseñanza de Judo, Jiu-jitsu, Sumo y Kurash en Montevideo desde hace 40 años, con personería jurídica.</p>
         <p class="reveal" style="--d:.2s">Nacida el 31 de julio de 1983, bajo la conducción del Sensei José Soca Montero (8.º Dan), en 1986 consiguió la primera medalla de oro sudamericana del club. Nuestros alumnos han integrado la Selección Nacional en competencias sudamericanas, panamericanas, mundiales y olímpicas.</p>
         <p class="reveal" style="--d:.3s">Además: sala de musculación, cancha cerrada para handball y vóley, y desde 2024 partín artístico de la mano de la Academia Me.Cu.Al.</p>
@@ -335,7 +100,7 @@
       <div class="section-head">
         <div>
           <div class="eyebrow reveal">Nuestro equipo</div>
-          <h2 class="reveal">Quienes nos <span style="color:var(--red)">enseñan</span></h2>
+          <h2 class="reveal">Quienes nos <span class="accent">enseñan</span></h2>
         </div>
         <p class="reveal" style="--d:.1s">Maestros con décadas en el tatami. Cada clase tiene la guía de quien ya pasó por el camino que vas a recorrer.</p>
       </div>
@@ -370,23 +135,29 @@
       <div class="section-head">
         <div>
           <div class="eyebrow reveal">Horarios</div>
-          <h2 class="reveal">Entrená cuando <span style="color:var(--red)">quieras</span></h2>
+          <h2 class="reveal">Entrená cuando <span class="accent">quieras</span></h2>
         </div>
         <p class="reveal" style="--d:.1s">Clases por grupo y franja horaria. Escribinos para coordinar una clase de prueba.</p>
       </div>
       <div class="sched-grid">
         <div class="sched reveal" style="--d:0s">
           <div class="day">Lunes, miércoles<br>y viernes</div>
-          <div class="slot"><span>Judo menores</span><b>18<small>h</small></b></div>
-          <div class="slot"><span>Juveniles y mayores</span><b>19<small>h</small></b></div>
+          <div class="slots">
+            <div class="slot"><span>Judo menores</span><b>18<small>h</small></b></div>
+            <div class="slot"><span>Juveniles y mayores</span><b>19<small>h</small></b></div>
+          </div>
         </div>
         <div class="sched reveal" style="--d:.1s">
           <div class="day">Martes<br>y viernes</div>
-          <div class="slot"><span>Desde</span><b>8:30<small>am</small></b></div>
+          <div class="slots single">
+            <div class="slot"><span>Desde</span><b>8:30<small>am</small></b></div>
+          </div>
         </div>
         <div class="sched reveal" style="--d:.2s">
           <div class="day">Sábados</div>
-          <div class="slot"><span>Desde</span><b>9:30<small>am</small></b></div>
+          <div class="slots single">
+            <div class="slot"><span>Desde</span><b>9:30<small>am</small></b></div>
+          </div>
         </div>
       </div>
     </div>
@@ -398,7 +169,7 @@
       <div class="section-head">
         <div>
           <div class="eyebrow reveal">Galería</div>
-          <h2 class="reveal">Tatami y <span style="color:var(--red)">podio</span></h2>
+          <h2 class="reveal">Tatami y <span class="accent">podio</span></h2>
         </div>
       </div>
       <div class="gallery">
@@ -420,14 +191,20 @@
   <section id="contacto" class="contact">
     <div class="wrap contact-grid">
       <div>
-        <div class="eyebrow reveal" style="color:#fff">Contacto</div>
+        <div class="eyebrow reveal">Contacto</div>
         <h2 class="reveal">Empezá hoy.</h2>
         <p class="reveal" style="--d:.1s">Llamanos para consultar horarios, inscripciones o coordinar tu clase de prueba.</p>
         <a class="phone reveal" style="--d:.2s" href="tel:+59895351871">095 351 871
-          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         <div class="socials reveal" style="--d:.3s">
-          <a href="https://www.instagram.com/judokan.uy/" target="_blank" rel="noopener">Instagram</a>
-          <a href="https://www.facebook.com/judokan.uy" target="_blank" rel="noopener">Facebook</a>
+          <a class="social-btn social-btn-ig" href="https://www.instagram.com/judokan.uy/" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+            <span class="txt"><small>Seguinos</small>Instagram</span>
+          </a>
+          <a class="social-btn social-btn-fb" href="https://www.facebook.com/judokan.uy" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 8h3V4h-3c-2.8 0-4 1.8-4 4v2H7v4h3v8h4v-8h3l1-4h-4V8z"/></svg>
+            <span class="txt"><small>Seguinos</small>Facebook</span>
+          </a>
         </div>
       </div>
       <div class="contact-card reveal-s" style="--d:.2s">
@@ -452,59 +229,8 @@
   </div>
 </footer>
 
-<div class="lightbox" id="lightbox" onclick="this.classList.remove('open')"><img id="lightbox-img" alt=""></div>
+<div class="lightbox" id="lightbox" role="dialog" aria-label="Foto ampliada"><img id="lightbox-img" alt=""></div>
 
-<script>
-  // header al hacer scroll
-  const header = document.querySelector('header');
-  const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 40);
-  window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
-
-  // menú móvil
-  function toggleMenu(btn){
-    const nav = document.getElementById('nav');
-    const open = nav.classList.toggle('open');
-    btn.setAttribute('aria-expanded', open);
-    document.body.style.overflow = open ? 'hidden' : '';
-  }
-  document.querySelectorAll('nav a').forEach(a => a.addEventListener('click', () => {
-    document.getElementById('nav').classList.remove('open');
-    document.querySelector('.burger').setAttribute('aria-expanded','false');
-    document.body.style.overflow = '';
-  }));
-
-  // revelado al hacer scroll
-  const io = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
-  }, {threshold: .15, rootMargin: '0px 0px -40px 0px'});
-  document.querySelectorAll('.reveal,.reveal-l,.reveal-s').forEach(el => io.observe(el));
-
-  // contadores
-  const countIo = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (!e.isIntersecting) return;
-      const el = e.target, end = +el.dataset.count, dur = 1800, t0 = performance.now();
-      if (end === 1983 || end === 1992) { countIo.unobserve(el); return; } // años: se muestran tal cual
-      const step = now => {
-        const p = Math.min((now - t0) / dur, 1), eased = 1 - Math.pow(1 - p, 3);
-        el.textContent = Math.floor(end * eased).toLocaleString('es-UY');
-        if (p < 1) requestAnimationFrame(step);
-      };
-      requestAnimationFrame(step);
-      countIo.unobserve(el);
-    });
-  }, {threshold: .6});
-  document.querySelectorAll('[data-count]').forEach(el => {
-    if (el.dataset.count === '1983' || el.dataset.count === '1992') return;
-    el.textContent = '0'; countIo.observe(el);
-  });
-
-  // lightbox
-  document.querySelectorAll('.gallery img').forEach(img => img.parentElement.addEventListener('click', () => {
-    document.getElementById('lightbox-img').src = img.src;
-    document.getElementById('lightbox-img').alt = img.alt;
-    document.getElementById('lightbox').classList.add('open');
-  }));
-</script>
+<script src="js/main.js"></script>
 </body>
 </html>

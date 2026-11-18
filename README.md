@@ -6,12 +6,19 @@ Es un archivo HTML estático: no tiene build, ni dependencias, ni backend. Se ab
 ## Estructura del repo
 
 ```
-index.html          Toda la página: estilos (CSS) y scripts (JS) incluidos
+index.html          Estructura y contenido (HTML). Enlaza al CSS y al JS.
+css/
+  styles.css        Todos los estilos, ordenados por secciones numeradas
+js/
+  main.js           Comportamiento: menú móvil, revelado al scroll, contadores, visor de galería
 assets/             Fotos del club
   jk_*.jpeg         Fotos del sitio original de judokan.uy (hero, nosotros, equipo)
   galeria/ig_*.webp Fotos de Instagram para la galería
 README.md           Este archivo
 ```
+
+Regla general: el HTML solo tiene contenido, el CSS solo tiene estilos y el JS solo tiene comportamiento.
+No hay estilos ni scripts dentro de `index.html`, salvo el enlace a las fuentes de Google.
 
 ## Estilo visual
 
@@ -53,19 +60,27 @@ Todo está hecho con CSS y un poco de JavaScript, sin librerías externas.
 
 ## Cómo editar
 
-Todo el contenido está en `index.html`. Buscá la sección por su `id`:
+El contenido está en `index.html` y los estilos en `css/styles.css`. Buscá la sección por su `id`:
 
 | Qué cambiar | Dónde buscar |
 | --- | --- |
-| Título del hero y texto | `<div class="hero">` |
-| Cifras de "Estadísticas" | `<div class="stats">`; para contar, `data-count="3000"` |
-| Texto de "Nosotros" | `<section id="nosotros">` |
-| Integrantes del equipo | `<section id="equipo">`; cada `<article class="member">` es una persona |
-| Horarios | `<section id="horarios">`; cada `<div class="sched">` es un bloque de días |
-| Fotos de la galería | `<section id="galeria">`; cada `<figure>` es una foto |
-| Teléfono, dirección, horarios de contacto | `<section id="contacto">` |
-| Colores | Variables en `:root` al inicio del `<style>` |
-| Fuentes | Línea `<link href="https://fonts.googleapis.com/...">` en el `<head>` |
+| Título del hero y texto | `index.html`, `<div class="hero">` |
+| Cifras de "Estadísticas" | `index.html`, `<div class="stats">`; para animar el conteo, `data-count="3000"` |
+| Texto de "Nosotros" | `index.html`, `<section id="nosotros">` |
+| Integrantes del equipo | `index.html`, `<section id="equipo">`; cada `<article class="member">` es una persona |
+| Horarios | `index.html`, `<section id="horarios">`; cada `<div class="sched">` es una tarjeta de días |
+| Fotos de la galería | `index.html`, `<section id="galeria">`; cada `<figure>` es una foto |
+| Teléfono, dirección, horarios de contacto | `index.html`, `<section id="contacto">` |
+| Botones de redes | `index.html`, `<div class="socials">`; estilos en `.social-btn` de `css/styles.css` |
+| Colores | `css/styles.css`, variables en `:root` (sección 1) |
+| Fuentes | Línea `<link href="https://fonts.googleapis.com/...">` en el `<head>` de `index.html`, y las `font-family` en `css/styles.css` |
+| Comportamiento (menú, contadores, visor) | `js/main.js` |
+
+### Horarios: cómo se arma una tarjeta
+
+- Varios horarios en un mismo día: usá dos `<div class="slot">` dentro de `<div class="slots">`.
+- Un solo horario: agregá la clase `single` a `<div class="slots">`. El horario se muestra en grande y ocupa la tarjeta completa, para que las tres tarjetas queden parejas.
+- Las tres tarjetas usan la misma altura (grid), así que no hace falta tocar el CSS al agregar o quitar horarios.
 
 ### Agregar o cambiar una foto de la galería
 
@@ -85,7 +100,7 @@ Para fotos de retrato, lo mejor es una imagen vertical con el rostro en la parte
 
 ### Cambiar el color del acento
 
-En `:root` cambiá `--red` (y `--red-glow`, que es su versión translúcida). Todo el sitio se actualiza.
+En `css/styles.css`, dentro de `:root`, cambiá `--red` (y `--red-glow`, que es su versión translúcida). Todo el sitio se actualiza.
 
 ## Responsive
 
