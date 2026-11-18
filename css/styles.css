@@ -258,12 +258,20 @@ section{padding:120px 0;position:relative}
 .social-btn:hover{transform:translateY(-3px);box-shadow:0 20px 40px -14px rgba(0,0,0,.6)}
 .social-btn-ig:hover{background:#0b0b0d;color:#fff}
 .social-btn-fb:hover{background:#1f1f25}
-.map{border-radius:var(--radius);overflow:hidden;border:1px solid rgba(255,255,255,.22);background:#0b0b0d;box-shadow:0 30px 60px -30px rgba(0,0,0,.6)}
-.map iframe{display:block;width:100%;height:480px;border:0}
-.map-link{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 22px;background:#0b0b0d;color:#fff;text-decoration:none;font-weight:600;font-size:.95rem;transition:background .3s,color .3s}
-.map-link span:last-child{color:var(--red);transition:color .3s}
-.map-link:hover{background:var(--red)}
-.map-link:hover span:last-child{color:#fff}
+/* Mapa de Google Maps con estilo oscuro de marca y tarjeta de dirección */
+.map{position:relative;height:520px;border-radius:24px;overflow:hidden;border:1px solid rgba(255,255,255,.18);background:#0b0b0d;box-shadow:0 40px 70px -34px rgba(0,0,0,.75)}
+.map-frame{position:absolute;inset:0;width:100%;height:100%;border:0;display:block;
+  /* Mapa oscuro: invierte los colores claros y reduce saturación para que combine con la marca */
+  filter:invert(.9) hue-rotate(180deg) saturate(.55) brightness(.9) contrast(.95)}
+.map::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(0deg,rgba(11,11,13,.7) 0%,rgba(11,11,13,0) 38%),radial-gradient(120% 80% at 50% 0%,transparent 55%,rgba(11,11,13,.45) 100%)}
+.map-card{position:absolute;left:16px;right:16px;bottom:16px;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 14px 14px 16px;border-radius:18px;background:rgba(11,11,13,.82);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.12);box-shadow:0 20px 40px -18px rgba(0,0,0,.8)}
+.map-info{display:flex;align-items:center;gap:14px;min-width:0}
+.map-pin{width:44px;height:44px;flex:0 0 44px;border-radius:50%;background:var(--red);display:grid;place-items:center;box-shadow:0 10px 24px -8px var(--red-glow)}
+.map-pin svg{width:22px;height:22px}
+.map-info strong{display:block;font-family:Oswald,sans-serif;font-size:1.1rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#fff;line-height:1.1}
+.map-info span:last-child{display:block;font-size:.88rem;color:var(--muted);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.map-btn{flex:0 0 auto;display:inline-flex;align-items:center;gap:8px;padding:13px 22px;border-radius:999px;background:var(--red);color:#fff;font-weight:600;font-size:.9rem;text-decoration:none;white-space:nowrap;transition:background .3s,color .3s,transform .3s var(--ease)}
+.map-btn:hover{background:#fff;color:#000;transform:translateY(-2px)}
 
 /* 15. Pie de página -------------------------------------------------------- */
 .site-footer{padding:56px 0 34px;border-top:1px solid var(--line);color:var(--muted);font-size:.9rem;background:var(--bg)}
@@ -333,8 +341,9 @@ section{padding:120px 0;position:relative}
   .gallery{grid-template-columns:1fr;grid-auto-rows:240px}
   .gallery figure:nth-child(1){grid-column:auto}
   .section-head{margin-bottom:44px}
-  .map iframe{height:340px}
-  .map-link{flex-direction:column;align-items:flex-start;gap:6px}
+  .map{height:440px}
+  .map-card{flex-direction:column;align-items:stretch;gap:12px}
+  .map-btn{justify-content:center}
   .socials{flex-direction:column}
   .social-btn{width:100%;min-width:0}
   .sched{padding:32px 26px}
