@@ -18,6 +18,43 @@
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
+  /* 1b. Píldora deslizante de la navbar ---------------------------------- */
+  // La píldora roja se desliza hasta el enlace activo y, al pasar o hacer
+  // clic en otra opción, se desliza hasta esa. Vuelve a la activa al salir.
+  var navUl = menu && menu.querySelector('ul');
+  var pill = navUl && navUl.querySelector('.nav-pill');
+  var activeLink = menu && menu.querySelector('a[aria-current="page"]');
+
+  function isPillVisible() {
+    return pill && getComputedStyle(pill).display !== 'none';
+  }
+  function movePill(link) {
+    if (!pill || !link || !isPillVisible()) return;
+    var r = link.getBoundingClientRect();
+    var u = navUl.getBoundingClientRect();
+    pill.style.left = (r.left - u.left) + 'px';
+    pill.style.width = r.width + 'px';
+    pill.style.opacity = '1';
+  }
+  if (pill && navUl) {
+    movePill(activeLink);
+    // Activa las transiciones después del primer posicionamiento (sin salto al cargar).
+    requestAnimationFrame(function () { navUl.classList.add('ready'); });
+
+    menu.querySelectorAll('a.link').forEach(function (a) {
+      a.addEventListener('mouseenter', function () { movePill(a); });
+      a.addEventListener('click', function (e) {
+        if (a === activeLink || !isPillVisible()) return; // mismo lugar o móvil: navegación directa
+        e.preventDefault();
+        movePill(a);
+        var href = a.getAttribute('href');
+        setTimeout(function () { window.location.href = href; }, 380);
+      });
+    });
+    navUl.addEventListener('mouseleave', function () { movePill(activeLink); });
+    window.addEventListener('resize', function () { movePill(activeLink); });
+  }
+
   /* 2. Menú móvil --------------------------------------------------------- */
   function setMenu(open) {
     menu.classList.toggle('open', open);

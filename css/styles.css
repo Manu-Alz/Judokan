@@ -78,7 +78,12 @@ section{padding:96px 0;position:relative}
 .site-header.scrolled .nav-menu ul,.site-header.solid .nav-menu ul{background:rgba(255,255,255,.04)}
 .nav-menu a.link{display:block;text-decoration:none;font-size:.86rem;font-weight:500;color:rgba(255,255,255,.82);padding:9px 16px;border-radius:999px;transition:color .3s,background .3s}
 .nav-menu a.link:hover{color:#fff;background:rgba(255,255,255,.08)}
-.nav-menu a.link[aria-current="page"]{color:#fff;background:var(--red);box-shadow:0 8px 20px -10px var(--red-glow)}
+/* Píldora deslizante: se mueve sola hasta la opción activa o la que se elige */
+.nav-menu ul{position:relative}
+.nav-menu a.link{position:relative;z-index:1}
+.nav-menu a.link[aria-current="page"]{color:#fff}
+.nav-menu ul li.nav-pill{position:absolute;top:6px;bottom:6px;left:0;width:0;margin:0;border-radius:999px;background:var(--red);box-shadow:0 8px 20px -10px var(--red-glow);opacity:0;pointer-events:none;list-style:none;z-index:0}
+.nav-menu ul.ready li.nav-pill{transition:left .5s var(--ease),width .5s var(--ease),opacity .3s}
 .nav-cta{padding:12px 20px;font-size:.84rem}
 .nav-cta svg{width:16px;height:16px}
 .nav-cta-mobile{display:none}
@@ -139,10 +144,10 @@ html{overflow-x:hidden}
    .divider-kanji   minimalista: 柔道 entre dos líneas rojas
    .divider-quote   lema grande con contorno
    .divider-band    banda negra inclinada (Sobre nosotros) */
-.divider-kanji{display:flex;align-items:center;gap:18px;max-width:440px;margin:88px auto;padding:0 22px}
+.divider-kanji{display:flex;align-items:center;gap:12px;max-width:380px;margin:56px auto;padding:0 22px}
 .divider-kanji::before,.divider-kanji::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(224,33,47,.75))}
 .divider-kanji::after{background:linear-gradient(270deg,transparent,rgba(224,33,47,.75))}
-.divider-kanji span{font-family:"Yu Gothic","Meiryo","Hiragino Sans",sans-serif;font-size:1.4rem;font-weight:700;line-height:1;letter-spacing:.12em;color:var(--red);white-space:nowrap}
+.divider-kanji span{font-family:"Yu Gothic","Meiryo","Hiragino Sans",sans-serif;font-size:1.4rem;font-weight:700;line-height:1;letter-spacing:.12em;margin-right:-.12em;color:var(--red);white-space:nowrap;flex:0 0 auto}
 .divider-quote{margin:88px auto;max-width:var(--max);padding:0 22px;text-align:center;user-select:none}
 .divider-quote span{display:inline-block;font-family:Oswald,sans-serif;font-weight:700;text-transform:uppercase;font-size:clamp(1.9rem,4.2vw,3.4rem);line-height:1.15;letter-spacing:.06em;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.3)}
 .divider-quote span em{font-style:normal;color:var(--red);-webkit-text-stroke:0}
@@ -500,6 +505,7 @@ html{overflow-x:hidden}
   .site-header .nav-menu ul{flex-direction:column;background:none;border:0;padding:0;gap:6px}
   .nav-menu a.link{font-family:Oswald,sans-serif;font-size:2rem;text-transform:uppercase;letter-spacing:.04em;padding:8px 18px}
   .nav-menu a.link[aria-current="page"]{background:none;color:var(--red);box-shadow:none}
+  .nav-menu ul li.nav-pill{display:none}
   .nav-menu .nav-cta-mobile{display:inline-flex;margin-top:10px}
   .about,.contact-grid{grid-template-columns:1fr;gap:60px}
   .about-media .frame{inset:18px -12px -18px 18px}

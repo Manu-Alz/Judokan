@@ -18,6 +18,7 @@
 
   // Menú: cada opción es una página propia.
   var NAV = [
+    { id: 'inicio', label: 'Inicio', href: 'index.html' },
     { id: 'nosotros', label: 'Nosotros', href: 'nosotros.html' },
     { id: 'horarios', label: 'Horarios', href: 'horarios.html' },
     { id: 'galeria', label: 'Galería', href: 'galeria.html' },
@@ -54,7 +55,7 @@
           '</a>' +
           '<div class="nav-right">' +
             '<nav id="nav" class="nav-menu" aria-label="Principal">' +
-              '<ul>' + links + '</ul>' +
+              '<ul>' + '<li class="nav-pill" aria-hidden="true"></li>' + links + '</ul>' +
               '<a class="btn btn-red nav-cta-mobile" href="' + WHATSAPP + '" target="_blank" rel="noopener">' + WA_SVG + 'Escribinos</a>' +
             '</nav>' +
             '<a class="btn btn-red nav-cta" href="' + WHATSAPP + '" target="_blank" rel="noopener">' + WA_SVG + 'Escribinos</a>' +
