@@ -369,11 +369,14 @@ html{overflow-x:hidden}
 .center-link{text-align:center}
 /* Equipo en Sobre nosotros: destacado del Sensei + fila compacta */
 .feature{display:grid;grid-template-columns:1fr 1.2fr;margin:0 0 22px;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--bg-2)}
-.feature img{width:100%;height:100%;min-height:380px;object-fit:cover;object-position:center 20%;display:block}
+/* Foto destacada: misma caja (4:5) para cualquier integrante */
+.feature img{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;object-position:center 18%;display:block;align-self:start}
 .feature .fbody{padding:48px 44px;display:flex;flex-direction:column;justify-content:center}
 .feature-name{font-size:2.4rem;color:#fff;margin:6px 0 16px}
 .feature p{font-size:1.04rem;max-width:520px}
-.roster{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.roster{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+@media (max-width:1040px){.roster{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:600px){.roster{grid-template-columns:1fr}}
 .roster-item{display:flex;align-items:center;gap:18px;padding:18px 22px;border:1px solid var(--line);border-radius:var(--radius);background:var(--bg-2);color:inherit;font:inherit;text-align:left;cursor:pointer;transition:transform .4s var(--ease),border-color .4s,background .4s,box-shadow .4s}
 .roster-item:hover{transform:translateY(-4px);border-color:rgba(224,33,47,.45)}
 .roster-item:focus-visible{outline:2px solid var(--red);outline-offset:3px}
@@ -388,7 +391,7 @@ html{overflow-x:hidden}
 .roster-item h3{font-size:1.25rem;color:#fff}
 @media (max-width:900px){
   .feature{grid-template-columns:1fr}
-  .feature img{min-height:300px}
+  .feature img{aspect-ratio:1/1}
   .feature .fbody{padding:30px 26px}
   .feature-name{font-size:2rem}
   .roster{grid-template-columns:1fr}
