@@ -140,10 +140,10 @@ html{overflow-x:hidden}
    .divider-stripes franja diagonal roja y negra a todo el ancho
    .divider-quote   lema grande con contorno
    .divider-band    banda negra inclinada (Sobre nosotros) */
-.divider-kanji{display:flex;align-items:center;gap:26px;max-width:var(--max);margin:88px auto;padding:0 22px}
+.divider-kanji{display:flex;align-items:center;gap:18px;max-width:440px;margin:88px auto;padding:0 22px}
 .divider-kanji::before,.divider-kanji::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(224,33,47,.75))}
 .divider-kanji::after{background:linear-gradient(270deg,transparent,rgba(224,33,47,.75))}
-.divider-kanji span{font-family:"Yu Gothic","Meiryo","Hiragino Sans",sans-serif;font-size:1.5rem;font-weight:700;letter-spacing:.35em;color:var(--red);padding-left:.35em}
+.divider-kanji span{font-family:"Yu Gothic","Meiryo","Hiragino Sans",sans-serif;font-size:1.4rem;font-weight:700;line-height:1;letter-spacing:.12em;color:var(--red);white-space:nowrap}
 .divider-stripes{height:22px;margin:88px -4%;background:repeating-linear-gradient(-45deg,var(--red) 0 16px,#0b0b0d 16px 32px);box-shadow:0 0 0 1px rgba(224,33,47,.25) inset}
 .divider-quote{margin:88px auto;max-width:var(--max);padding:0 22px;text-align:center;user-select:none}
 .divider-quote span{display:inline-block;font-family:Oswald,sans-serif;font-weight:700;text-transform:uppercase;font-size:clamp(1.9rem,4.2vw,3.4rem);line-height:1.15;letter-spacing:.06em;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.3)}
