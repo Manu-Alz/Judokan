@@ -70,7 +70,7 @@ El contenido está en `index.html` y los estilos en `css/styles.css`. Buscá la 
 | Integrantes del equipo | `index.html`, `<section id="equipo">`; cada `<article class="member">` es una persona |
 | Horarios | `index.html`, `<section id="horarios">`; cada `<div class="sched">` es una tarjeta de días |
 | Fotos de la galería | `index.html`, `<section id="galeria">`; cada `<figure>` es una foto |
-| Teléfono, dirección, horarios de contacto | `index.html`, `<section id="contacto">` |
+| Teléfono y mapa de ubicación | `index.html`, `<section id="contacto">`; el mapa es un `<iframe>` de Google Maps. Para cambiar el lugar, reemplazá las coordenadas de `q=` y el enlace `href` del `.map-link` |
 | Botones de redes | `index.html`, `<div class="socials">`; estilos en `.social-btn` de `css/styles.css` |
 | Colores | `css/styles.css`, variables en `:root` (sección 1) |
 | Fuentes | Línea `<link href="https://fonts.googleapis.com/...">` en el `<head>` de `index.html`, y las `font-family` en `css/styles.css` |
