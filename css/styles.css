@@ -350,8 +350,9 @@ html{overflow-x:hidden}
 .btn-line:hover{background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.45);color:#fff}
 
 /* Enlaces con flecha: ahora son botones compactos */
-.link-arrow{display:inline-flex;align-items:center;gap:10px;padding:13px 20px;border-radius:14px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);color:#fff;font-weight:600;font-size:.92rem;text-decoration:none;transition:transform .35s var(--ease),background .35s,border-color .35s,color .35s,gap .35s var(--ease)}
-.link-arrow:hover{background:var(--red);border-color:var(--red);color:#fff;transform:translateY(-3px);gap:14px}
+.link-arrow{display:inline-flex;align-items:center;gap:10px;padding:13px 20px;border-radius:14px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);color:#fff;font-weight:600;font-size:.92rem;text-decoration:none;box-shadow:0 0 0 rgba(224,33,47,0);transition:transform .35s var(--ease),background .35s,border-color .35s,color .35s,gap .35s var(--ease),box-shadow .35s var(--ease)}
+.link-arrow:hover{background:var(--red);border-color:var(--red);color:#fff;transform:translateY(-3px);gap:14px;box-shadow:0 18px 36px -14px var(--red-glow)}
+.link-arrow:active{transform:translateY(-1px)}
 
 /* Filtros de noticias */
 .filter{padding:12px 20px;border-radius:14px;border:1px solid var(--line);background:var(--bg-2);color:#fff;font-weight:600;font-size:.9rem;font-family:inherit;cursor:pointer;transition:transform .35s var(--ease),background .35s,border-color .35s}
@@ -363,6 +364,9 @@ html{overflow-x:hidden}
 .map-btn:hover{background:#fff;color:#000}
 .nav-cta{border-radius:14px;padding:12px 20px}
 .nav-menu .nav-cta-mobile{display:none}
+
+/* Legibilidad del eyebrow del hero sobre la foto */
+.hero .eyebrow{text-shadow:0 2px 14px rgba(0,0,0,.75);color:#ff5a64}
 
 /* 15d. Proporciones: etiquetas de categoría y botones de enlace más discretos */
 .tag{padding:4px 10px;border-radius:8px;font-size:.62rem;letter-spacing:.12em;line-height:1.3}
