@@ -18,7 +18,7 @@
 
   // Menú: cada opción es una página propia.
   var NAV = [
-    { id: 'inicio', label: 'Inicio', href: 'index.html' },
+    { id: 'inicio', label: 'Inicio', href: './' },
     { id: 'nosotros', label: 'Nosotros', href: 'nosotros.html' },
     { id: 'horarios', label: 'Horarios', href: 'horarios.html' },
     { id: 'galeria', label: 'Galería', href: 'galeria.html' },
@@ -49,7 +49,7 @@
     var html =
       '<header class="site-header' + (solid ? ' solid' : '') + '">' +
         '<div class="wrap nav">' +
-          '<a class="brand" href="index.html" aria-label="Judokan Uruguay, inicio">' +
+          '<a class="brand" href="./" aria-label="Judokan Uruguay, inicio">' +
             '<span class="seal">' + SEAL_SVG + '</span>' +
             '<span class="brand-text">JUDOKAN<small>URUGUAY</small></span>' +
           '</a>' +
