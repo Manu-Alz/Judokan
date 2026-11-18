@@ -52,9 +52,9 @@
           '<div class="nav-right">' +
             '<nav id="nav" class="nav-menu" aria-label="Principal">' +
               '<ul>' + links + '</ul>' +
-              '<a class="btn btn-red nav-cta-mobile" href="contacto.html">Probá una clase</a>' +
+              '<a class="btn btn-red nav-cta-mobile" href="tel:' + PHONE_LINK + '">' + PHONE_SVG + 'Llamar ahora</a>' +
             '</nav>' +
-            '<a class="btn btn-red nav-cta" href="contacto.html">' + PHONE_SVG + 'Probá una clase</a>' +
+            '<a class="btn btn-red nav-cta" href="tel:' + PHONE_LINK + '">' + PHONE_SVG + 'Llamar ahora</a>' +
             '<button class="burger" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav"><span></span></button>' +
           '</div>' +
         '</div>' +
