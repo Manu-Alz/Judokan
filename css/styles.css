@@ -146,7 +146,7 @@ html{overflow-x:hidden}
    .divider-kanji   minimalista: 柔道 entre dos líneas rojas
    .divider-quote   lema grande con contorno
    .divider-band    banda negra inclinada (Sobre nosotros) */
-.divider-kanji{display:flex;align-items:center;gap:12px;max-width:380px;margin:-40px auto;padding:0 22px}
+.divider-kanji{display:flex;align-items:center;gap:12px;max-width:380px;margin:-8px auto;padding:0 22px}
 .divider-kanji::before,.divider-kanji::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(224,33,47,.75))}
 .divider-kanji::after{background:linear-gradient(270deg,transparent,rgba(224,33,47,.75))}
 .divider-kanji span{font-family:"Yu Gothic","Meiryo","Hiragino Sans",sans-serif;font-size:1.4rem;font-weight:700;line-height:1;letter-spacing:.12em;margin-right:-.12em;color:var(--red);white-space:nowrap;flex:0 0 auto}
