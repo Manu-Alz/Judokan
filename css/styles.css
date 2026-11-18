@@ -125,6 +125,9 @@ section{padding:120px 0;position:relative}
 /* 7. Marquesina ------------------------------------------------------------ */
 /* Banda giratoria: ancho fijo en vw (no en %) para que siempre cubra la pantalla,
    incluso en ventanas angostas o minimizadas. */
+/* main recorta el desborde horizontal: sin esto, los 120vw de la banda empujan la página. */
+main{overflow-x:clip}
+html{overflow-x:hidden}
 .marquee{position:relative;z-index:3;width:120vw;max-width:none;margin:-30px 0 0 -10vw;background:var(--red);color:#fff;overflow:hidden;white-space:nowrap;padding:18px 0;transform:rotate(-1.4deg);transform-origin:50% 50%;backface-visibility:hidden;will-change:transform;box-shadow:0 20px 40px -20px rgba(0,0,0,.6)}
 .marquee-track{display:inline-flex;animation:marquee 26s linear infinite}
 .marquee span{font-family:Oswald,sans-serif;font-size:1.6rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;padding:0 26px;display:inline-flex;align-items:center;gap:26px}
