@@ -406,6 +406,10 @@ html{overflow-x:hidden}
   .btn{padding:15px 22px}
 }
 
+/* Estadísticas: el contador debe heredar el tamaño grande (la regla de etiquetas le pisaba el estilo) */
+.stat b span{display:inline;margin:0;font-size:inherit;letter-spacing:inherit;text-transform:none;color:inherit;font-weight:inherit}
+.stat b em{font-size:inherit}
+
 /* Legibilidad del eyebrow del hero sobre la foto */
 .hero .eyebrow{text-shadow:0 2px 14px rgba(0,0,0,.75);color:#ff5a64}
 
