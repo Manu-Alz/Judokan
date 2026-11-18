@@ -60,6 +60,7 @@
     menu.classList.toggle('open', open);
     // backdrop-filter crea un contexto para los hijos fijos: se quita con el menú abierto.
     header.classList.toggle('menu-open', open);
+    body.classList.toggle('menu-open', open); // oculta la barra flotante mientras el menú está abierto
     burger.setAttribute('aria-expanded', String(open));
     burger.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
     body.style.overflow = open ? 'hidden' : '';
