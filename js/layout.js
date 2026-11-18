@@ -11,6 +11,9 @@
 
   var PHONE = '095 351 871';
   var PHONE_LINK = '+59895351871';
+  // WhatsApp abre la app en el celular y WhatsApp Web en la computadora.
+  var WHATSAPP = 'https://wa.me/59895351871';
+  var WA_SVG = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm0 18.2a8.2 8.2 0 01-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1112 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 01-3.3-2.9c-.2-.4.3-.4.8-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 00-.7.3 3 3 0 00-.9 2.2 5.2 5.2 0 001.1 2.8 11.9 11.9 0 004.6 4c1.7.7 2.4.8 3.2.7.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.2-.2-.4-.3z"/></svg>';
   var ADDRESS = 'Zapicán 2710, Montevideo';
 
   // Menú: cada opción es una página propia.
@@ -52,9 +55,9 @@
           '<div class="nav-right">' +
             '<nav id="nav" class="nav-menu" aria-label="Principal">' +
               '<ul>' + links + '</ul>' +
-              '<a class="btn btn-red nav-cta-mobile" href="tel:' + PHONE_LINK + '">' + PHONE_SVG + 'Llamar ahora</a>' +
+              '<a class="btn btn-red nav-cta-mobile" href="' + WHATSAPP + '" target="_blank" rel="noopener">' + WA_SVG + 'Escribinos</a>' +
             '</nav>' +
-            '<a class="btn btn-red nav-cta" href="tel:' + PHONE_LINK + '">' + PHONE_SVG + 'Llamar ahora</a>' +
+            '<a class="btn btn-red nav-cta" href="' + WHATSAPP + '" target="_blank" rel="noopener">' + WA_SVG + 'Escribinos</a>' +
             '<button class="burger" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav"><span></span></button>' +
           '</div>' +
         '</div>' +

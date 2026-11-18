@@ -121,7 +121,9 @@ section{padding:96px 0;position:relative}
 @keyframes rise{to{transform:translateY(0)}}
 @keyframes fade{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
 @keyframes cue{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
-@keyframes marquee{to{transform:translateX(-50%)}}
+/* Bandas infinitas: el track tiene 5 copias idénticas, así que desplazar 1/5 y volver a empezar es continuo */
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-20%)}}
+@keyframes marquee-rev{from{transform:translateX(-20%)}to{transform:translateX(0)}}
 
 /* 7. Marquesina ------------------------------------------------------------ */
 /* Banda giratoria: ancho fijo en vw (no en %) para que siempre cubra la pantalla,
@@ -130,7 +132,13 @@ section{padding:96px 0;position:relative}
 main{overflow-x:clip}
 html{overflow-x:hidden}
 .marquee{position:relative;z-index:3;width:120vw;max-width:none;margin:-30px 0 0 -10vw;background:var(--red);color:#fff;overflow:hidden;white-space:nowrap;padding:18px 0;transform:rotate(-1.4deg);transform-origin:50% 50%;backface-visibility:hidden;will-change:transform;box-shadow:0 20px 40px -20px rgba(0,0,0,.6)}
-.marquee-track{display:inline-flex;animation:marquee 26s linear infinite}
+.marquee-track{display:inline-flex;animation:marquee 40s linear infinite;will-change:transform}
+.marquee-track.rev{animation:marquee-rev 52s linear infinite}
+/* Segunda banda: fina, oscura, sentido contrario y con texto contorneado */
+.marquee-2{background:#0b0b0d;color:#fff;margin:-6px 0 0 -10vw;padding:10px 0;transform:rotate(1.4deg);box-shadow:0 14px 30px -18px rgba(0,0,0,.9);border-top:1px solid rgba(224,33,47,.5);border-bottom:1px solid rgba(224,33,47,.5)}
+.marquee-2 span{font-size:1rem;color:rgba(255,255,255,.85);padding:0 20px;gap:20px}
+.marquee-2 span::after{background:var(--red);width:7px;height:7px}
+.marquee span.ol{color:transparent;-webkit-text-stroke:1.2px #fff;letter-spacing:.1em}
 .marquee span{font-family:Oswald,sans-serif;font-size:1.6rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;padding:0 26px;display:inline-flex;align-items:center;gap:26px}
 .marquee span::after{content:"";width:10px;height:10px;background:#fff;transform:rotate(45deg)}
 
