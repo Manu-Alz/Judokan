@@ -57,7 +57,7 @@ section{padding:96px 0;position:relative}
 .btn-line:hover{color:#000;border-color:#fff}
 
 /* 4. Encabezado y navegación --------------------------------------------- */
-.site-header{position:fixed;inset:0 0 auto 0;z-index:100;height:var(--header-h);transition:background-color .45s var(--ease),box-shadow .45s var(--ease),height .45s var(--ease),border-color .45s;border-bottom:1px solid transparent;transform:translateZ(0)}
+.site-header{position:fixed;inset:0 0 auto 0;z-index:100;height:var(--header-h);transition:background-color .45s var(--ease),box-shadow .45s var(--ease),height .45s var(--ease),border-color .45s;border-bottom:1px solid transparent}
 /* Estado 1: sobre el hero, transparente */
 .site-header::before{content:"";position:absolute;inset:0 0 -40px 0;background:linear-gradient(180deg,rgba(0,0,0,.55),rgba(0,0,0,0));pointer-events:none;transition:opacity .45s;z-index:-1}
 /* Estado 2: al hacer scroll o en páginas internas, vidrio oscuro */
