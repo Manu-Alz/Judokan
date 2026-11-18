@@ -310,6 +310,17 @@ section{padding:120px 0;position:relative}
 .contact-page .map{height:560px}
 .contact-page::before{content:"JUDOKAN";position:absolute;left:-2%;bottom:-70px;font-family:Oswald,sans-serif;font-weight:700;font-size:clamp(7rem,22vw,20rem);line-height:1;color:rgba(0,0,0,.12);pointer-events:none;white-space:nowrap}
 .foot-brand{margin-bottom:14px}
+/* Inicio: tira de galería (6 fotos parejas) y banda de cierre */
+.gallery.gallery-home{grid-template-columns:repeat(3,1fr);grid-auto-rows:240px}
+.gallery.gallery-home figure:nth-child(n){grid-column:auto;grid-row:auto}
+.home-cta{padding:100px 0}
+.cta-actions{display:flex;gap:14px;flex-wrap:wrap}
+@media (max-width:600px){
+  .gallery.gallery-home{grid-template-columns:1fr 1fr;grid-auto-rows:200px}
+  .cta-actions{width:100%}
+  .cta-actions .btn{flex:1 1 100%}
+}
+.foot-brand{margin-bottom:14px}
 
 /* 15c. Sistema de botones unificado (mismo estilo que Instagram/Facebook) --
    Todas las variantes comparten radio, altura, ícono y animación de hover.
