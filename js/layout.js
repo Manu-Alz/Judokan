@@ -100,4 +100,11 @@
   if (h) h.replaceWith(buildHeader());
   var f = document.getElementById('site-footer');
   if (f) f.replaceWith(buildFooter());
+
+  // Barra de acción fija en celular: llamar o escribir sin buscar el número.
+  var dock = el('<nav class="mobile-dock" aria-label="Contacto rápido">' +
+    '<a class="dock-call" href="tel:' + PHONE_LINK + '">' + PHONE_SVG + 'Llamar</a>' +
+    '<a class="dock-wa" href="' + WHATSAPP + '" target="_blank" rel="noopener">' + WA_SVG + 'WhatsApp</a>' +
+  '</nav>');
+  document.body.appendChild(dock);
 })();
