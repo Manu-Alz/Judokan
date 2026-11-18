@@ -1,29 +1,45 @@
 [
   {
-    "slug": "tour-sudamericano-podio",
-    "titulo": "Nuestros alumnos en el Tour Sudamericano",
-    "fecha": "",
-    "categoria": "Competencia",
-    "resumen": "Medallas y podios de nuestros judokas en el circuito internacional.",
-    "imagen": "assets/jk_7.png",
-    "imagenAlt": "Podio del Tour Sudamericano Internacional",
+    "slug": "copa-judokan-internacional-2023",
+    "titulo": "¡Supimos cumplir!",
+    "fecha": "2023-11-20",
+    "categoria": "Eventos",
+    "resumen": "Se realizó la 22.ª Copa Judokan Internacional de Judo, con más de 150 competidores.",
+    "imagen": "assets/jk_6.jpeg",
+    "imagenAlt": "Alumnos de Judokan con la bandera del club en la Copa Judokan Internacional",
     "cuerpo": [
-      "Nuestros alumnos volvieron a subir al podio en el Tour Sudamericano Internacional, una de las competencias más exigentes de la región.",
-      "Cada medalla es el resultado de meses de entrenamiento, disciplina y trabajo en equipo con nuestros maestros.",
-      "¡Felicitaciones a todos los que representaron al club!"
+      "El pasado domingo 19 de noviembre de 2023 se realizó en Montevideo la 22.ª Copa Judokan Internacional de Judo. Con la participación de más de 150 competidores, se entregaron 91 medallas de oro, 41 de plata y 13 de bronce.",
+      "Compitieron atletas de 7 clubes e instituciones de Brasil y Uruguay, con una gran presencia de Brasil con más de 100 competidores. Nuestra institución se coronó con el oro en la categoría Absoluto, con el atleta Juan Carlos Rodríguez, y fue la segunda institución más premiada del evento.",
+      "En nuestro 40.º aniversario, y tras 22 años organizando este evento, el campeonato se logró gracias a la experiencia de Master Esportes de Brasil y la Liga Riograndense de Judo. Nuestros atletas sumaron 13 medallas de oro, 9 de plata y 4 de bronce.",
+      "El campeonato se transmitió en vivo por YouTube."
     ]
   },
   {
-    "slug": "nuevo-sitio-web",
-    "titulo": "Estrenamos nuestro sitio web",
-    "fecha": "",
-    "categoria": "Novedades",
-    "resumen": "Horarios, equipo, galería y contacto en un solo lugar.",
-    "imagen": "assets/jk_1.jpeg",
-    "imagenAlt": "Maestros y alumnos de Judokan",
+    "slug": "felicitaciones-victoria",
+    "titulo": "¡Felicitaciones Victoria!",
+    "fecha": "2023-09-24",
+    "categoria": "Competencia",
+    "resumen": "Victoria Abreu obtuvo dos primeros puestos en el Open Internacional de Judo de Rivera.",
+    "imagen": "assets/jk_7.png",
+    "imagenAlt": "Victoria Abreu en el podio del Tour Sudamericano",
     "cuerpo": [
-      "Ya podés encontrar en nuestra página los horarios de clases, el equipo de maestros, la galería de fotos y cómo llegar al club.",
-      "Desde aquí también vamos a publicar noticias sobre eventos, competencias y novedades de las clases."
+      "El domingo 24 de setiembre de 2023 se realizó en Rivera el Open Internacional de Judo 2023, Tour Sudamericano de Judo, con clubes y competidores de varios lugares de Brasil y Uruguay.",
+      "Nuestra deportista norteña Victoria Abreu compitió en dos categorías y obtuvo el primer puesto en ambas: Mayor femenino, peso ligero, y Mayores mujeres veteranas A, peso ligero.",
+      "Fue la única deportista uruguaya que obtuvo estos desempeños en la competencia. ¡Felicitaciones, Victoria!"
+    ]
+  },
+  {
+    "slug": "grande-martin",
+    "titulo": "¡Grande Martín!",
+    "fecha": "2023-07-08",
+    "categoria": "Competencia",
+    "resumen": "Martín Smaldone ganó la categoría senior en el 3.er Campeonato Abierto de Judo de Comodoro Rivadavia.",
+    "imagen": "assets/jk_8.png",
+    "imagenAlt": "Martín Smaldone en el podio del campeonato de Comodoro Rivadavia",
+    "cuerpo": [
+      "El sábado 8 de julio de 2023 se desarrolló en Comodoro Rivadavia, Argentina, el 3.er Campeonato Abierto de Judo de ese país, en el Club Social Huergo.",
+      "Nuestro atleta y profesor Martín Smaldone fue juez en las exhibiciones de katas del Kodokán, y luego ganó la categoría senior libre de peso en una final muy reñida. Además recibió la copa «Sensei Antonio L’Abbate» al mejor luchador.",
+      "También obtuvo el primer puesto con medalla de oro en el 1.er Campeonato Patagónico de Kurash. ¡Felicitaciones, Martín!"
     ]
   }
 ]

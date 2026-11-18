@@ -6,13 +6,17 @@ Es un archivo HTML estático: no tiene build, ni dependencias, ni backend. Se ab
 ## Estructura del repo
 
 ```
-index.html          Inicio: hero, horarios, noticias recientes, galería y contacto
-nosotros.html       Sobre nosotros: historia, hitos, equipo y disciplinas
+index.html          Inicio: hero, estadísticas, resumen, últimas noticias y accesos rápidos
+nosotros.html       Quiénes somos: historia, hitos, equipo y disciplinas
+horarios.html       Horarios de clases
+galeria.html        Galería de fotos (se abre ampliada al tocar)
 noticias.html       Listado de noticias con filtros por categoría
 noticia.html        Plantilla de cada noticia (se abre con ?s=identificador)
+contacto.html       Teléfono, redes y mapa
 css/
   styles.css        Todos los estilos, ordenados por secciones numeradas
 js/
+  layout.js         Encabezado (menú) y pie de página: se editan una sola vez, aquí
   main.js           Comportamiento común: navbar, menú móvil, revelado al scroll, contadores, visor
   noticias.js       Lee data/noticias.json y arma tarjetas, listado y páginas de noticia
 data/
@@ -26,8 +30,12 @@ README.md           Este archivo
 ## Páginas
 
 Cada página es un archivo HTML independiente con su propia dirección (`nosotros.html`, `noticias.html`, `noticia.html?s=...`).
-El encabezado y el pie se repiten en cada archivo: si cambia el menú, hay que actualizarlo en todas las páginas.
-Para el enlace activo de la navbar, cada página tiene `data-page="..."` en `<body>` y cada enlace tiene `data-nav="..."`.
+El encabezado (menú) y el pie se generan desde `js/layout.js`, así que se editan en un solo lugar.
+Cada página tiene `<div id="site-header"></div>` y `<div id="site-footer"></div>`, y en `<body>`:
+- `data-page="horarios"` (u otra página del menú): resalta ese enlace en la navbar.
+- `data-header="solid"`: encabezado con fondo oscuro desde el inicio (en todas las páginas menos el inicio).
+
+Todas las opciones del menú son páginas propias. Para agregar una, sumala a la lista `NAV` de `js/layout.js` y creá su archivo HTML.
 
 ## Noticias: cómo publicar
 

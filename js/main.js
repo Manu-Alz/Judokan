@@ -1,5 +1,6 @@
 /* ==========================================================================
    Judokan Uruguay · comportamiento común a todas las páginas
+   Requiere que js/layout.js se cargue antes (crea el encabezado).
    Sin dependencias. Las noticias están en js/noticias.js.
    ========================================================================== */
 (function () {
@@ -12,40 +13,33 @@
 
   /* 1. Encabezado: estado "scrolled" al bajar ----------------------------- */
   function onScroll() {
-    header.classList.toggle('scrolled', window.scrollY > 40);
+    if (header) header.classList.toggle('scrolled', window.scrollY > 40);
   }
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
-  /* 2. Enlace activo según la página (data-page en <body>) ---------------- */
-  var page = body.getAttribute('data-page');
-  if (page) {
-    menu.querySelectorAll('a[data-nav]').forEach(function (a) {
-      if (a.getAttribute('data-nav') === page) a.setAttribute('aria-current', 'page');
-    });
-  }
-
-  /* 3. Menú móvil --------------------------------------------------------- */
+  /* 2. Menú móvil --------------------------------------------------------- */
   function setMenu(open) {
     menu.classList.toggle('open', open);
-    // backdrop-filter crea un nuevo contexto para los elementos fijos hijos:
-    // se quita mientras el menú móvil está abierto para que cubra toda la pantalla.
+    // backdrop-filter crea un contexto para los hijos fijos: se quita con el menú abierto.
     header.classList.toggle('menu-open', open);
     burger.setAttribute('aria-expanded', String(open));
     burger.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
     body.style.overflow = open ? 'hidden' : '';
   }
-  burger.addEventListener('click', function () {
-    setMenu(!menu.classList.contains('open'));
-  });
-  menu.querySelectorAll('a').forEach(function (a) {
-    a.addEventListener('click', function () { setMenu(false); });
-  });
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape') setMenu(false);
-  });
+  if (burger && menu) {
+    burger.addEventListener('click', function () {
+      setMenu(!menu.classList.contains('open'));
+    });
+    menu.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', function () { setMenu(false); });
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') setMenu(false);
+    });
+  }
 
-  /* 4. Revelado al hacer scroll ------------------------------------------- */
+  /* 3. Revelado al hacer scroll ------------------------------------------- */
   var revealEls = document.querySelectorAll('.reveal, .reveal-l, .reveal-s');
   if ('IntersectionObserver' in window) {
     var revealIo = new IntersectionObserver(function (entries) {
@@ -61,7 +55,7 @@
     revealEls.forEach(function (el) { el.classList.add('in'); });
   }
 
-  /* 5. Contadores (data-count) ------------------------------------------- */
+  /* 4. Contadores (data-count) ------------------------------------------- */
   function animateCount(el) {
     var end = Number(el.getAttribute('data-count'));
     var dur = 1800;
@@ -89,15 +83,23 @@
     });
   }
 
-  /* 6. Galería: visor a pantalla completa -------------------------------- */
-  var lightbox = document.getElementById('lightbox');
-  if (lightbox) {
-    var lightboxImg = document.getElementById('lightbox-img');
-    document.querySelectorAll('.gallery figure').forEach(function (fig) {
+  /* 5. Galería: visor a pantalla completa (se crea aquí, no en el HTML) --- */
+  var galleryFigs = document.querySelectorAll('.gallery figure');
+  if (galleryFigs.length) {
+    var lightbox = document.createElement('div');
+    lightbox.className = 'lightbox';
+    lightbox.setAttribute('role', 'dialog');
+    lightbox.setAttribute('aria-label', 'Foto ampliada');
+    var big = document.createElement('img');
+    big.alt = '';
+    lightbox.appendChild(big);
+    document.body.appendChild(lightbox);
+
+    galleryFigs.forEach(function (fig) {
       fig.addEventListener('click', function () {
         var img = fig.querySelector('img');
-        lightboxImg.src = img.src;
-        lightboxImg.alt = img.alt;
+        big.src = img.src;
+        big.alt = img.alt;
         lightbox.classList.add('open');
       });
     });

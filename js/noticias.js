@@ -145,7 +145,7 @@
 
     var foot = el('div', { class: 'article-foot' }, [
       el('a', { class: 'link-arrow', href: 'noticias.html' }, ['← Todas las noticias']),
-      el('a', { class: 'btn btn-red', href: 'index.html#contacto' }, ['Consultar por el club'])
+      el('a', { class: 'btn btn-red', href: 'contacto.html' }, ['Consultar por el club'])
     ]);
 
     container.appendChild(el('article', { class: 'article' }, [head, cover, body, foot].filter(Boolean)));
